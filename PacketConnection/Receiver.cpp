@@ -34,7 +34,8 @@ namespace Gaia::Connections::PacketConnection
     {
         Packet packet;
         packet.Data.resize(DefaultBufferSize);
-        Socket.receive_from(boost::asio::buffer(packet.Data.data(), DefaultBufferSize),packet.Address);
+        auto length = Socket.receive_from(boost::asio::buffer(packet.Data.data(), packet.Data.size()),packet.Address);
+        packet.Data.resize(length);
         return packet;
     }
 
