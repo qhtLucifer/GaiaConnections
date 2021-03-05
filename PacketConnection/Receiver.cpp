@@ -2,7 +2,7 @@
 #include <iostream>
 namespace Gaia::Connections::PacketConnection
 {
-    /// Default Constructor without binding port or address
+    /// Default constructor without binding port or address
     Receiver::Receiver(): Socket(Context)
 
     {}
@@ -12,24 +12,24 @@ namespace Gaia::Connections::PacketConnection
 
     /// Construct with binding port. Default ip is localhost
     Receiver::Receiver(unsigned short port):
-            Socket(Context, boost::asio::ip::udp::endpoint(boost::asio::ip::udp::v4(), port)), Bound(true)
+        Socket(Context, boost::asio::ip::udp::endpoint(boost::asio::ip::udp::v4(), port)), Bound(true)
     {}
 
-    /// Change binding address of the socket
+    /// Bind to a specific address.
     void Receiver:: Bind(const boost::asio::ip::udp::endpoint& address)
     {
         Socket.bind(address);
         Bound = true;
     }
 
-    /// Change binding port of the socket. Default ip is localhost
+    /// Bind to a port on local host.
     void Receiver::Bind(unsigned short port)
     {
         Socket.bind(boost::asio::ip::udp::endpoint(boost::asio::ip::udp::v4(), port));
         Bound = true;
     }
 
-    /// Provide the function used to read the data from buffer until the end.Return the packet of the data and address
+    /// Start to receive data.
     Packet Receiver::Receive()
     {
         Packet packet;
@@ -39,7 +39,7 @@ namespace Gaia::Connections::PacketConnection
         return packet;
     }
 
-    /// Provide the function used to read the data from buffer with limited length.Return the packet of the data and address.
+    /// Start to receive a specific amount of data.
     Packet Receiver::Receive(std::size_t length)
     {
         Packet packet;

@@ -11,7 +11,7 @@ namespace Gaia::Connections::PacketConnection
 		return socket_instance;
 	}
 
-    /// Static function for sending packet that has been constructed
+    /// Static function for sending packet that has been constructed.
     void Sender::Send(const Packet& packet)
     {
         // Send the data of packet to the packet's destination
@@ -19,7 +19,7 @@ namespace Gaia::Connections::PacketConnection
 
     }
 
-    /// Static function in order to sending packet only for temporariness without constructing Packet
+    /// Static function in order to sending packet only for temporariness without constructing Packet.
     void Sender::Send(const Packet::EndPoint& address, const std::vector<unsigned char>& data)
     {
         // Send the data to the destination described in the parameter
