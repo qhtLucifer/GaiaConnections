@@ -1,6 +1,9 @@
 #pragma once
+
 #include <boost/asio.hpp>
+
 #include "Packet.hpp"
+
 namespace Gaia::Connections::PacketConnection
 {
     /**
