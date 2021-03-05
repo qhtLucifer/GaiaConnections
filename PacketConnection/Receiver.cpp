@@ -43,7 +43,16 @@ namespace Gaia::Connections::PacketConnection
     {
         Packet packet;
         packet.Data.resize(length);
-        Socket.receive_from(boost::asio::buffer(packet.Data),packet.Address);
+
+        std::size_t received_size = 0;
+
+        while (received_size < length)
+        {
+        	received_size += Socket.receive_from(boost::asio::buffer(packet.Data.data() + received_size,
+																  length - received_size),
+											  packet.Address);
+        }
+
         return packet;
     }
 }
