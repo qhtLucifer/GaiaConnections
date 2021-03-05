@@ -14,7 +14,12 @@ namespace Gaia::Connections::PacketConnection
      */
     class Sender{
     private:
-        static inline boost::asio::io_context Context {};
+    	/**
+    	 * @brief Acquire the static instance of the socket used for sending packet.
+    	 * @return Reference of the static instance of socket.
+    	 */
+        static boost::asio::ip::udp::socket& GetSocket();
+
     public:
         /// Static function for sending packet
         static void Send(const Packet& packet);
