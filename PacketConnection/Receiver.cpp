@@ -1,5 +1,5 @@
 #include "Receiver.hpp"
-#include <iostream>
+
 namespace Gaia::Connections::PacketConnection
 {
     /// Default constructor without binding port or address
