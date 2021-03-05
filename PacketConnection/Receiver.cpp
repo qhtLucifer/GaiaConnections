@@ -18,15 +18,15 @@ namespace Gaia::Connections::PacketConnection
     /// Change binding address of the socket
     void Receiver:: Bind(const boost::asio::ip::udp::endpoint& address)
     {
-        this->Socket.bind(address);
-        this->Bound = true;
+        Socket.bind(address);
+        Bound = true;
     }
 
     /// Change binding port of the socket. Default ip is localhost
     void Receiver::Bind(unsigned short port)
     {
-        this->Socket.bind(boost::asio::ip::udp::endpoint(boost::asio::ip::udp::v4(), port));
-        this->Bound = false;
+        Socket.bind(boost::asio::ip::udp::endpoint(boost::asio::ip::udp::v4(), port));
+        Bound = true;
     }
 
     /// Provide the function used to read the data from buffer until the end.Return the packet of the data and address
