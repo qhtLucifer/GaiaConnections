@@ -6,6 +6,7 @@ namespace Gaia::Connections::PacketConnection
     /**
      * @brief Receive data from binding port
      * @details
+     *  The Receiver has a default buffer size : 512. Please Remember to change the buffer size when users need
      *  Receiver need to be bound with the port first.
      *  The Receiver could be initialized with address, port or nothing.
      *  Use Bind function to bind socket with a new address or port.
