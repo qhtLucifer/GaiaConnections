@@ -33,7 +33,7 @@ file(GLOB_RECURSE TARGET_HEADER "*.hpp")
 #==============================
 
 # To lower the running cost, this module will be compiled as a static library.
-add_library(${TARGET_NAME} STATIC ${TARGET_SOURCE} ${TARGET_HEADER} ${TARGET_CUDA_SOURCE} ${TARGET_CUDA_HEADER})
+add_library(${TARGET_NAME} STATIC ${TARGET_SOURCE} ${TARGET_HEADER} ${TARGET_CUDA_SOURCE} ${TARGET_CUDA_HEADER} ../ChannelConneciton/Channel.cpp ../ChannelConneciton/Channel.hpp)
 
 # Enable 'DEBUG' Macro in Debug Mode
 if(CMAKE_BUILD_TYPE STREQUAL Debug)

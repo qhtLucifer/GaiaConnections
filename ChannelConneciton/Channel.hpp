@@ -1,9 +1,20 @@
 #pragma once
+
 #include <boost/asio.hpp>
+
 namespace Gaia::Connections::ChannelConnection
 {
     /**
      * @brief Create a Channel for the TCP connection.
+     * @details The Channel could be used as a server or a client. As the server, the Socket must be bound with a specified port and
+     * IP. The localhost will be bound to the Socket if there is not a specified IP. Then call the function Listen(), the Socket
+     * starts wait for the connecting. After connecting successfully, the users could use function Write() or Read() to send or get
+     * data from TCP IO stream.
+     * As the client, the users can construct the Channel with specified remote endpoint so that the Socket will try to connect to
+     * the remote endpoint directly. Another way to connect is the function Connect().Before calling the Connect(), the remote
+     * endpoint must be specified.
+     * @attention The Channel will throw a exception out the error if here are some errors occur.
+     *
      */
     class Channel
     {
@@ -16,7 +27,7 @@ namespace Gaia::Connections::ChannelConnection
         boost::asio::ip::tcp::endpoint RemoteEndpoint;
         // The size of Channel`s IO buffer. The default size is 512.
         size_t MaxDataSize = {512};
-        //Whether the Channel is established already.
+        // Whether the Channel is established already.
         bool Connected = false;
 
         boost::system::error_code error_code;

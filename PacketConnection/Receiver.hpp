@@ -41,7 +41,7 @@ namespace Gaia::Connections::PacketConnection
          *  Sometimes IP is necessary when there are multiple network cards on the computer,
          *  and users want to bind Receiver on one of them.
          */
-        explicit Receiver(const boost::asio::ip::udp::endpoint& address);
+        Receiver(const boost::asio::ip::udp::endpoint& address);
         /**
          * @brief Construct and bind to a port on local host.
          * @param port Port to bind.
